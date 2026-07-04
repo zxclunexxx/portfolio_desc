@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse Analytics</title>
+    <style>
+      :root { color-scheme: dark; --bg:#07131a; --panel:#0f2330; --text:#f5fbff; --muted:#8fb0c1; --accent:#22c55e; --accent2:#38bdf8; }
+      *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,sans-serif;background:linear-gradient(120deg,#07131a,#183c53 55%,#07131a);color:var(--text)}
+      .wrap{max-width:1180px;margin:0 auto;padding:24px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.panel{background:rgba(15,35,48,.92);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+      h1,h2,h3,p{margin:0 0 10px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}.metric{padding:16px;border-radius:16px;background:rgba(255,255,255,.05)}.metric strong{display:block;font-size:1.3rem}.bars{display:grid;gap:10px;margin-top:14px}.bar{display:flex;align-items:center;gap:10px}.bar span{width:70px;color:var(--muted)}.bar div{flex:1;height:10px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.bar div i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2))}.table{margin-top:16px;border-collapse:collapse;width:100%}.table th,.table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(34,197,85,.16);color:#dcfce7;font-size:.84rem}
+      @media (max-width:760px){.hero,.grid{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <section class="panel">
+          <p class="muted">Pulse Analytics</p>
+          <h1>See your growth story at a glance.</h1>
+          <p class="muted">A compact live dashboard for engagement, retention, and momentum across your product.</p>
+          <div class="grid">
+            <div class="metric"><strong>+24%</strong><span>Weekly active users</span></div>
+            <div class="metric"><strong>9.8/10</strong><span>Customer satisfaction</span></div>
+            <div class="metric"><strong>78%</strong><span>Retention</span></div>
+            <div class="metric"><strong>$41k</strong><span>Revenue lift</span></div>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Weekly momentum</h2>
+          <div class="bars">
+            <div class="bar"><span>Mon</span><div><i style="width:62%"></i></div></div>
+            <div class="bar"><span>Tue</span><div><i style="width:78%"></i></div></div>
+            <div class="bar"><span>Wed</span><div><i style="width:88%"></i></div></div>
+            <div class="bar"><span>Thu</span><div><i style="width:91%"></i></div></div>
+            <div class="bar"><span>Fri</span><div><i style="width:97%"></i></div></div>
+          </div>
+          <div class="tag" style="margin-top:14px">Live insights • Growth-ready</div>
+        </section>
+      </div>
+      <section class="panel" style="margin-top:18px">
+        <h2>Recent highlights</h2>
+        <table class="table">
+          <thead>
+            <tr><th>Channel</th><th>Change</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Organic search</td><td>+18%</td><td>Healthy</td></tr>
+            <tr><td>Referral traffic</td><td>+11%</td><td>Rising</td></tr>
+            <tr><td>Paid campaigns</td><td>+7%</td><td>Optimizing</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>

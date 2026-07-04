@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Productivity Desk</title>
+    <style>
+      :root { color-scheme: dark; --bg:#07111f; --panel:#10213b; --text:#f3f8ff; --muted:#8fa8c4; --accent:#7c3aed; --accent2:#38bdf8; }
+      *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,sans-serif;background:linear-gradient(135deg,#07111f,#18426d 60%,#07111f);color:var(--text)}
+      .wrap{max-width:1100px;margin:0 auto;padding:24px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:start}.panel{background:rgba(16,33,59,.9);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:20px;box-shadow:0 20px 45px rgba(0,0,0,.25)}
+      h1,h2,h3,p{margin:0 0 10px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.stat{background:rgba(255,255,255,.05);padding:14px;border-radius:16px}.stat strong{font-size:1.2rem;display:block}
+      form{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}.input{flex:1;min-width:220px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:#0b1727;color:var(--text)}.btn{padding:11px 14px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;font-weight:700;cursor:pointer}
+      .task-list{display:grid;gap:12px;margin-top:16px}.task{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:rgba(255,255,255,.05);border-radius:16px;border:1px solid rgba(255,255,255,.08)}.task.done{opacity:.65}.task button{border:0;background:#ef4444;color:white;padding:8px 10px;border-radius:10px;cursor:pointer}.sub{display:flex;gap:8px;flex-wrap:wrap}.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(56,189,248,.16);color:#dbeafe;font-size:.9rem;margin:0 6px 6px 0}
+      @media (max-width:760px){.hero{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <section class="panel">
+          <p class="muted">AI Productivity Desk</p>
+          <h1>Turn scattered notes into a calm, focused plan.</h1>
+          <p class="muted">Capture tasks, prioritize what matters, and keep your day moving with a simple flow that feels effortless.</p>
+          <form id="task-form">
+            <input id="task-input" class="input" placeholder="Add your next focus task" />
+            <button class="btn" type="submit">Add task</button>
+          </form>
+          <div class="stats">
+            <div class="stat"><strong id="done-count">0</strong><span>Done</span></div>
+            <div class="stat"><strong id="pending-count">0</strong><span>Pending</span></div>
+            <div class="stat"><strong id="focus-score">92%</strong><span>Flow score</span></div>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Today’s rhythm</h2>
+          <p class="muted">A focused view of your work with AI-style suggestions and a quick summary.</p>
+          <div class="sub">
+            <span class="pill">Deep work</span>
+            <span class="pill">Meeting prep</span>
+            <span class="pill">Inbox sweep</span>
+          </div>
+          <div class="task-list" id="task-list"></div>
+        </section>
+      </div>
+    </div>
+    <script>
+      const form = document.getElementById('task-form');
+      const input = document.getElementById('task-input');
+      const list = document.getElementById('task-list');
+      const doneCount = document.getElementById('done-count');
+      const pendingCount = document.getElementById('pending-count');
+      const focusScore = document.getElementById('focus-score');
+      let tasks = JSON.parse(localStorage.getItem('ai-productivity-tasks') || '[]');
+
+      function saveTasks() {
+        localStorage.setItem('ai-productivity-tasks', JSON.stringify(tasks));
+      }
+
+      function render() {
+        list.innerHTML = '';
+        if (!tasks.length) {
+          list.innerHTML = '<div class="task"><span>No tasks yet — add your first focus item.</span></div>';
+        } else {
+          tasks.forEach((task, index) => {
+            const item = document.createElement('div');
+            item.className = `task ${task.done ? 'done' : ''}`;
+            item.innerHTML = `
+              <span>${task.text}</span>
+              <div>
+                <button data-index="${index}" class="toggle">${task.done ? 'Undo' : 'Done'}</button>
+                <button data-index="${index}" class="delete">Delete</button>
+              </div>
+            `;
+            list.appendChild(item);
+          });
+        }
+        const done = tasks.filter((task) => task.done).length;
+        const pending = tasks.length - done;
+        doneCount.textContent = done;
+        pendingCount.textContent = pending;
+        const score = tasks.length ? Math.round((done / tasks.length) * 100) : 100;
+        focusScore.textContent = `${score}%`;
+      }
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+        tasks.unshift({ text, done: false });
+        input.value = '';
+        saveTasks();
+        render();
+      });
+
+      list.addEventListener('click', (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        const index = Number(button.dataset.index);
+        if (button.classList.contains('toggle')) {
+          tasks[index].done = !tasks[index].done;
+        } else if (button.classList.contains('delete')) {
+          tasks.splice(index, 1);
+        }
+        saveTasks();
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>
