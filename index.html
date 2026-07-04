@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
     <header>
       <div class="container">
         <nav>
@@ -51,9 +54,9 @@
             </p>
           </div>
           <div class="stats">
-            <div><strong>6+</strong><span>Years building products</span></div>
-            <div><strong>20+</strong><span>Projects delivered</span></div>
-            <div><strong>100%</strong><span>Focus on quality</span></div>
+            <div><strong class="counter" data-count="6">0</strong><span>Years building products</span></div>
+            <div><strong class="counter" data-count="20">0</strong><span>Projects delivered</span></div>
+            <div><strong class="counter" data-count="100">0</strong><span>Focus on quality</span></div>
           </div>
         </div>
       </section>
@@ -61,8 +64,8 @@
       <section id="projects">
         <p class="eyebrow">Selected work</p>
         <h2>Projects that mix strategy, craft, and execution.</h2>
-        <div class="grid-3">
-          <article class="card">
+        <div class="project-carousel" aria-label="Featured projects">
+          <article class="card project-slide active">
             <h3>AI Productivity Desk</h3>
             <p>A full-stack assistant that turns notes into structured plans, actions, and summaries for busy teams.</p>
             <div class="tags">
@@ -70,10 +73,10 @@
               <span class="tag">Node.js</span>
               <span class="tag">OpenAI API</span>
             </div>
-            <p><a href="https://github.com/ArtemFedorov/ai-productivity-desk" target="_blank" rel="noreferrer">View Project →</a></p>
+            <p><a href="projects/ai-productivity-desk/" target="_blank" rel="noreferrer">View Project →</a></p>
           </article>
 
-          <article class="card">
+          <article class="card project-slide">
             <h3>Pulse Analytics</h3>
             <p>A dashboard for tracking product KPIs, engagement trends, and growth insights in a single view.</p>
             <div class="tags">
@@ -81,10 +84,10 @@
               <span class="tag">Express</span>
               <span class="tag">Chart.js</span>
             </div>
-            <p><a href="https://github.com/ArtemFedorov/pulse-analytics" target="_blank" rel="noreferrer">View Project →</a></p>
+            <p><a href="projects/pulse-analytics/" target="_blank" rel="noreferrer">View Project →</a></p>
           </article>
 
-          <article class="card">
+          <article class="card project-slide">
             <h3>Launchpad Studio</h3>
             <p>A collaborative product launch workspace designed for teams preparing releases and internal communication.</p>
             <div class="tags">
@@ -92,7 +95,34 @@
               <span class="tag">Prisma</span>
               <span class="tag">PostgreSQL</span>
             </div>
-            <p><a href="https://github.com/ArtemFedorov/launchpad-studio" target="_blank" rel="noreferrer">View Project →</a></p>
+            <p><a href="projects/launchpad-studio/" target="_blank" rel="noreferrer">View Project →</a></p>
+          </article>
+        </div>
+        <div class="carousel-dots" role="tablist" aria-label="Project carousel navigation">
+          <button class="dot active" data-index="0" aria-label="Show first project"></button>
+          <button class="dot" data-index="1" aria-label="Show second project"></button>
+          <button class="dot" data-index="2" aria-label="Show third project"></button>
+        </div>
+      </section>
+
+      <section class="services-strip">
+        <div class="service-pill">⚡ Fast prototyping</div>
+        <div class="service-pill">🎨 UI systems</div>
+        <div class="service-pill">📈 Product growth</div>
+        <div class="service-pill">🛠️ Clean architecture</div>
+      </section>
+
+      <section>
+        <p class="eyebrow">Testimonials</p>
+        <h2>What collaborators say.</h2>
+        <div class="testimonial-grid">
+          <article class="card testimonial">
+            <p>“Artem brought structure and polish to a messy concept and turned it into something genuinely impressive.”</p>
+            <strong>— Product Lead</strong>
+          </article>
+          <article class="card testimonial">
+            <p>“Every interaction felt deliberate, modern, and easy to use. The outcome looked premium from day one.”</p>
+            <strong>— Startup Founder</strong>
           </article>
         </div>
       </section>
@@ -108,6 +138,20 @@
           <span class="tag">Testing</span>
           <span class="tag">CI/CD</span>
         </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-head"><span>React & UI</span><strong>95%</strong></div>
+            <div class="skill-bar"><i style="width:95%"></i></div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-head"><span>Performance</span><strong>90%</strong></div>
+            <div class="skill-bar"><i style="width:90%"></i></div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-head"><span>Product thinking</span><strong>92%</strong></div>
+            <div class="skill-bar"><i style="width:92%"></i></div>
+          </div>
+        </div>
       </section>
 
       <section id="contact">
@@ -122,6 +166,13 @@
             <a class="btn secondary" href="https://github.com/ArtemFedorov" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
+        <form class="panel contact-form" id="contact-form">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <textarea name="message" rows="4" placeholder="Tell me about your idea" required></textarea>
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="form-status" id="form-status">Thanks — I’ll get back to you soon.</p>
+        </form>
       </section>
     </main>
 
