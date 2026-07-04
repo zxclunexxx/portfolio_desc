@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launchpad Studio</title>
+    <style>
+      :root { color-scheme: dark; --bg:#090b16; --panel:#12182d; --text:#f8fbff; --muted:#92a2bb; --accent:#f59e0b; --accent2:#8b5cf6; }
+      *{box-sizing:border-box} body{margin:0;font-family:Inter,Segoe UI,sans-serif;background:radial-gradient(circle at top left,#241c4e,#090b16 55%,#06070f);color:var(--text)}
+      .wrap{max-width:1160px;margin:0 auto;padding:24px}.hero{display:grid;grid-template-columns:1fr .95fr;gap:20px}.panel{background:rgba(18,24,45,.94);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.26)}
+      h1,h2,h3,p{margin:0 0 10px}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.card{background:rgba(255,255,255,.05);padding:14px;border-radius:16px}.card strong{display:block;font-size:1.1rem}.timeline{display:grid;gap:12px;margin-top:16px}.item{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(255,255,255,.05);border-radius:14px;border:1px solid rgba(255,255,255,.08)}.chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(245,158,11,.18);color:#fde68a;font-size:.84rem;margin:5px 6px 0 0}
+      .pulse{animation:pulse 2.2s infinite ease-in-out}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+      @media (max-width:760px){.hero,.cards{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="hero">
+        <section class="panel pulse">
+          <p class="muted">Launchpad Studio</p>
+          <h1>Coordinate launches with clarity and momentum.</h1>
+          <p class="muted">A polished workspace for product teams to plan sprints, track milestones, and keep stakeholders aligned.</p>
+          <div class="cards">
+            <div class="card"><strong>7</strong><span>Active launches</span></div>
+            <div class="card"><strong>94%</strong><span>On-track</span></div>
+            <div class="card"><strong>12h</strong><span>Saved weekly</span></div>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Launch checklist</h2>
+          <div class="timeline">
+            <div class="item"><span>Product review</span><span class="chip">Ready</span></div>
+            <div class="item"><span>Marketing assets</span><span class="chip">Reviewing</span></div>
+            <div class="item"><span>Customer onboarding</span><span class="chip">Scheduled</span></div>
+          </div>
+          <div style="margin-top:16px">
+            <span class="chip">Roadmap</span>
+            <span class="chip">Stakeholder sync</span>
+            <span class="chip">Launch day</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
