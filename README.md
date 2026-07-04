@@ -1,26 +1,16 @@
-# Developer Portfolio
+# Artem Portfolio
 
-A polished portfolio website built with React and Vite, designed to showcase projects, skills, and contact information.
+A polished portfolio website for Artem, built as a static site and ready to host on GitHub Pages.
 
 ## Features
-- Modern one-page layout
-- Project cards and skill chips
-- Responsive design
+- Personalized hero section and bio
+- Project showcase cards
+- Responsive layout
+- Dark/light theme toggle
 - Ready for GitHub Pages deployment
 
-## Getting started
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the development server:
-   ```bash
-   npm run dev
-   ```
-3. Build for production:
-   ```bash
-   npm run build
-   ```
+## Run locally
+Open [index.html](index.html) in a browser, or serve the folder with any static server.
 
 ## Deployment
-This project includes a GitHub Actions workflow for publishing to GitHub Pages.
+This project is configured for GitHub Pages and can be published from the main branch.
