@@ -3,11 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A modern portfolio website built with React and Vite." />
+    <meta name="description" content="A polished portfolio website for a modern developer." />
     <title>Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header>
+      <div class="container">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Full-Stack Developer • Product-minded builder</p>
+            <h1>I craft thoughtful digital experiences that feel polished and perform well.</h1>
+            <p class="lead">
+              I build modern web apps with clean architecture, strong UX, and production-ready workflows.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="#projects">See Projects</a>
+              <a class="btn secondary" href="#contact">Let's Talk</a>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Available for</h3>
+            <ul class="metric-list">
+              <li>Frontend engineering</li>
+              <li>Product-focused prototypes</li>
+              <li>Scalable SaaS features</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="about">
+        <div class="grid-2">
+          <div>
+            <p class="eyebrow">About me</p>
+            <h2>Bridging design, code, and business impact.</h2>
+            <p class="section-copy">
+              I enjoy transforming complex ideas into intuitive interfaces and reliable systems. My work focuses on thoughtful product decisions, crisp visual design, and maintainable implementation.
+            </p>
+          </div>
+          <div class="stats">
+            <div><strong>6+</strong><span>Years building products</span></div>
+            <div><strong>20+</strong><span>Launches shipped</span></div>
+            <div><strong>100%</strong><span>Focus on quality</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects that mix strategy, craft, and execution.</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3>AI Productivity Desk</h3>
+            <p>A full-stack assistant that summarizes tasks, drafts updates, and turns notes into action plans.</p>
+            <div class="tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">OpenAI API</span>
+            </div>
+            <p><a href="https://github.com/yourname/ai-productivity-desk" target="_blank" rel="noreferrer">View Project →</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Pulse Analytics</h3>
+            <p>A business intelligence dashboard for tracking product metrics, engagement, and revenue trends.</p>
+            <div class="tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Express</span>
+              <span class="tag">Chart.js</span>
+            </div>
+            <p><a href="https://github.com/yourname/pulse-analytics" target="_blank" rel="noreferrer">View Project →</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Launchpad Studio</h3>
+            <p>A design-forward project management platform for teams running fast-moving product launches.</p>
+            <div class="tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Prisma</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <p><a href="https://github.com/yourname/launchpad-studio" target="_blank" rel="noreferrer">View Project →</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <p class="eyebrow">Toolkit</p>
+        <h2>Technologies I use to turn ideas into products.</h2>
+        <div class="tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">UI Design</span>
+          <span class="tag">Testing</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="panel contact-card">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Open to interesting opportunities and collaborations.</h2>
+            <p>Let’s build something useful, elegant, and memorable.</p>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="mailto:hello@yourname.dev">Email Me</a>
+            <a class="btn secondary" href="https://github.com/yourname" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">Designed and built as a portfolio showcase.</div>
+    </footer>
   </body>
 </html>
